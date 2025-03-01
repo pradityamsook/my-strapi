@@ -129,3 +129,35 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+############################
+# vue.js matching card game
+############################
+# Logs
+/matching-card-game/logs
+/matching-card-game/*.log
+/matching-card-game/npm-debug.log*
+/matching-card-game/yarn-debug.log*
+/matching-card-game/yarn-error.log*
+/matching-card-game/pnpm-debug.log*
+/matching-card-game/lerna-debug.log*
+
+/matching-card-game/node_modules
+/matching-card-game/.DS_Store
+/matching-card-game/dist
+/matching-card-game/dist-ssr
+/matching-card-game/coverage
+/matching-card-game/*.local
+
+/matching-card-game/cypress/videos/
+/matching-card-game/cypress/screenshots/
+
+# Editor directories and files
+/matching-card-game/.vscode/*
+/matching-card-game/!.vscode/extensions.json
+/matching-card-game/.idea
+/matching-card-game/*.suo
+/matching-card-game/*.ntvs*
+/matching-card-game/*.njsproj
+/matching-card-game/*.sln
+/matching-card-game/*.sw?
