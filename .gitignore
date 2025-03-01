@@ -163,3 +163,5 @@ build
 /matching-card-game/*.sw?
 
 /matching-card-game/*.tsbuildinfo
+
+/matching-card-game/node_modules
