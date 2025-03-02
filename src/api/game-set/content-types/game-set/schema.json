@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game_sets",
+  "info": {
+    "singularName": "game-set",
+    "pluralName": "game-sets",
+    "displayName": "GameSet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "cardImages": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "game_sets"
+    }
+  }
+}

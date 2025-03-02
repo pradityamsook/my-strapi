@@ -23,7 +23,11 @@
     // Include all js files
     "./**/*.js",
     // Force the JSON files in the src folder to be included
-    "src/**/*.json"
+    "src/**/*.json",
+    "src/**/*.ts", 
+    "src/**/*.d.ts", 
+    "src/**/*.tsx", 
+    "src/**/*.vue"
   ],
 
   "exclude": [
@@ -32,6 +36,7 @@
     "dist/",
     ".cache/",
     ".tmp/",
+    "matching-card-game/",
 
     // Do not include admin files in the server compilation
     "src/admin/",
