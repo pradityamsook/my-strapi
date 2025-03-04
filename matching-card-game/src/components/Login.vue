@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import api from '../stores/post-name-proxy.js';
+console.log(`${import.meta.env.VITE_API_STRAPI_URL}${api.auth}`);
 
 export default {
     data() {
@@ -13,7 +14,8 @@ export default {
     methods: {
         async login() {
             try {
-                const response = await axios.post(`${process.env.API_STRAPI_URL}${api.auth}`, {
+                console.log(this.identifier, this.password);
+                const response = await axios.post(`${import.meta.env.VITE_API_STRAPI_URL}${api.auth}`, {
                     identifier: this.identifier,
                     password: this.password,
                 });
@@ -27,6 +29,7 @@ export default {
                 alert('Login successful');
                 this.$router.push('/dashboard'); // Redirect after login
             } catch (error) {
+                console.error(error);
                 this.errorMessage = error.response?.data?.error?.message || 'Login failed';
             }
         },

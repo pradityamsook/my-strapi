@@ -1,3 +1,3 @@
 export default {
-    auth: "/api/auth/local/",
+    auth: "/api/auth/local",
 }
