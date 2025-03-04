@@ -1,5 +1,11 @@
 <script>
 import axios from 'axios';
+import { onMounted } from 'vue';
+
+
+// onMounted(() => {
+//   checkAuth();
+// });
 
 export default {
   data() {
@@ -17,6 +23,9 @@ export default {
   },
   created() {
     this.resetGame();
+    this.checkAuth();
+  },
+  onMounted() {
     this.checkAuth();
   },
   methods: {
@@ -80,6 +89,7 @@ export default {
           headers: { Authorization: `Bearer ${token}` }
         }).then(response => {
           this.user = response.data;
+          console.log('User:', this.user);
         }).catch(() => {
           localStorage.removeItem('token');
           this.user = null;
@@ -89,6 +99,9 @@ export default {
     logout() {
       this.user = null;
       localStorage.removeItem('token');
+    },
+    goToAuthenticator() {
+      this.$router.push('/login');
     }
   }
 };
@@ -107,6 +120,8 @@ export default {
       </div>
     </div>
     <button @click="resetGame" class="reset-container">Reset Game</button>
+    <div/>
+    <button @click="goToAuthenticator" class="reset-container">Create your game</button>
     <!-- <div v-if="!user">
       <h2>Login</h2>
       <input v-model="email" placeholder="Email" />
@@ -117,11 +132,11 @@ export default {
       <input v-model="registerPassword" type="password" placeholder="Password" />
       <input v-model="username" placeholder="Username" />
       <button @click="register">Register</button>
-    </div>
-    <div v-else>
+    </div> -->
+    <div v-if="user">
       <h2>Welcome, {{ user.username }}</h2>
       <button @click="logout">Logout</button>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -187,30 +202,21 @@ export default {
 }
 
 button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: white;
-  color: rgb(255, 255, 255);
-  font-family: 'Press Start 2P', sans-serif;
-  border: 2px solid white;
-  cursor: pointer;
+    padding: 10px;
+    margin: 10px auto;
+    background: white;
+    color: black;
+    font-family: 'Press Start 2P', sans-serif;
+    border: 2px solid white;
+    cursor: pointer;
 }
 
 button:hover {
-  background: black;
-  color: white;
+    background: black;
+    color: white;
 }
 
 .reset-container {
   width: 300px;
-  margin: 10px auto;
-  padding: 20px;
-  border: 4px solid white;
-  background: black;
-  box-shadow: 0 0 10px white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 </style>

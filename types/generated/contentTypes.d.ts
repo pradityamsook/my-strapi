@@ -506,6 +506,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiGameSetGameSet extends Struct.CollectionTypeSchema {
   collectionName: 'game_sets';
   info: {
+    description: '';
     displayName: 'GameSet';
     pluralName: 'game-sets';
     singularName: 'game-set';
@@ -532,7 +533,7 @@ export interface ApiGameSetGameSet extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    users_permissions_user: Schema.Attribute.Relation<
+    user: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.user'
     >;

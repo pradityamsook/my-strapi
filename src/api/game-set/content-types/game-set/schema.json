@@ -4,7 +4,8 @@
   "info": {
     "singularName": "game-set",
     "pluralName": "game-sets",
-    "displayName": "GameSet"
+    "displayName": "GameSet",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,16 +15,17 @@
       "type": "string"
     },
     "cardImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
-    "users_permissions_user": {
+    "user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",

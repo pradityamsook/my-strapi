@@ -4,7 +4,5 @@ import MatchingDefault from '../components/MatchingDefault.vue'
 </script>
 
 <template>
-  <main>
-    <MatchingDefault />
-  </main>
+  <MatchingDefault />
 </template>

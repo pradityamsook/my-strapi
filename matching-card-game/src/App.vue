@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+const token = localStorage.getItem('token');
+const user = localStorage.getItem('user');
 </script>
 
 <template>
@@ -13,8 +16,10 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <!-- <RouterLink to="/about">About</RouterLink> -->
-        <RouterLink to="/login">Login</RouterLink>
-        <RouterLink to="/register">Register</RouterLink>
+        <RouterLink v-if="!token && !user" to="/login">Login</RouterLink>
+        <RouterLink v-if="!token && !user" to="/register">Register</RouterLink>
+        <RouterLink v-if="token || user" to="/dashboard">Dashboard</RouterLink>
+        <RouterLink v-if="token || user" to="/login">Login</RouterLink>
       </nav>
     </div>
   </header>

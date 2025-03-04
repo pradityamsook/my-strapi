@@ -44,6 +44,7 @@ export default {
             <input type="text" v-model="identifier" placeholder="Username" required />
             <input type="password" v-model="password" placeholder="Password" required />
             <button type="submit">Enter</button>
+            <div @click="$router.push('/register')" class="register">Don't have account</div>
         </form>
         <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
     </div>
@@ -105,5 +106,15 @@ button:hover {
 .error {
     color: red;
     margin-top: 10px;
+}
+
+.register {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+.register:hover, .register:focus {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 </style>
